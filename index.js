@@ -8,16 +8,18 @@ app.use(express.json());
 app.get("/", (req, res) => {
   //console.log(sapins);
   const arr = req.query.arrdt;
-  //console.log(arr);
+  //console.log(fiels.arrdt);
   let results = [];
   for (let i = 0; i < sapins.length; i++) {
+    // if (arr === sapins[i].fields.arrdt)
     let infos = {
       garden: sapins[i].fields.jardin,
       address: sapins[i].fields.adresse,
       arrdt: sapins[i].fields.arrdt,
     };
-    //console.log(sapins[i].garden);
     results.push(infos);
+
+    //console.log(sapins[i].garden);
   }
   res.json(results);
 });
