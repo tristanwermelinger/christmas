@@ -1,8 +1,23 @@
 const express = require("express");
 const app = express();
 const axios = require("axios");
+const sapins = require("./sapins.json");
+console.log(sapins);
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  let results = [];
+  for (let i = 0; i < sapins.length; i++) {
+    let sapins = {
+      garden: sapins[i].garden,
+      address: address[i].address,
+      arrdt: arrdt[i].arrdt,
+    };
+    results.push(sapins);
+  }
+  res.json(results);
+});
 
 app.all("*", (req, res) => {
   res.status(404).json({ message: "error" });
